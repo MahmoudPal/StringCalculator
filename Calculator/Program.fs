@@ -5,13 +5,14 @@ open System
 
 type StringCalculator() =
 
-    member this.add (number : string) =
 
-        let delimiter = [|','; '\n'|]
+    member this.sum (number : string, delimiter : char[]) =
         let numberList = number.Split delimiter
-        if number.Length > 0 then  
-            Array.map int numberList |> Array.sum
-        else
-            0
-
+        Array.map int numberList |> Array.sum 
+            
+    member this.add (input : string) = 
+        match input with
+        | "" -> 0
+        | _ when input.StartsWith "//" -> this.sum(input.[4..], [|input.[2]|])
+        | _ -> this.sum(input, [|','; '\n'|])
      

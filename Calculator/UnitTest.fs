@@ -28,6 +28,12 @@ type Test() =
     member this.``support new line as delimiter`` input output =
         Assert.AreEqual(output, calculator.add input)
 
+    [<TestCase("//*\n4*6*10", 20)>]
+    [<TestCase("//*\n50*40*10", 100)>]
+    [<TestCase("//;\n50;40;10", 100)>]
+    member this.``support dynamic delimiter`` input output =
+        Assert.AreEqual(output, calculator.add input)
+
 
 
 
