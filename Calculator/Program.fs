@@ -9,7 +9,7 @@ type StringCalculator() =
 
         let delimiter = ','
         let numberList = number.Split delimiter
-        if number.Length > 0 && numberList.Length < 3 then  
+        if number.Length > 0 then  
             Array.map int numberList |> Array.sum
         else
             0

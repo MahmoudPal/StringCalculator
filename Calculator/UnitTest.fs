@@ -18,6 +18,10 @@ type Test() =
     [<TestCase("4,6", 10)>]
     member this.``two numbers`` input output =
         Assert.AreEqual(output, calculator.add input)
+    
+    [<TestCase("4,6,10", 20)>]
+    member this.``multiple numbers`` input output =
+        Assert.AreEqual(output, calculator.add input)
 
 
 
