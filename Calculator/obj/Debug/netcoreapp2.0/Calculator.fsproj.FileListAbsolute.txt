@@ -1,0 +1,12 @@
+/Users/Mahmoud/Projects/Calculator/Calculator/obj/Debug/netcoreapp2.0/Calculator.fsprojResolveAssemblyReference.cache
+/Users/Mahmoud/Projects/Calculator/Calculator/bin/Debug/netcoreapp2.0/NUnit3.TestAdapter.dll
+/Users/Mahmoud/Projects/Calculator/Calculator/bin/Debug/netcoreapp2.0/NUnit3.TestAdapter.pdb
+/Users/Mahmoud/Projects/Calculator/Calculator/bin/Debug/netcoreapp2.0/nunit.engine.netstandard.dll
+/Users/Mahmoud/Projects/Calculator/Calculator/bin/Debug/netcoreapp2.0/Mono.Cecil.dll
+/Users/Mahmoud/Projects/Calculator/Calculator/bin/Debug/netcoreapp2.0/Calculator.deps.json
+/Users/Mahmoud/Projects/Calculator/Calculator/bin/Debug/netcoreapp2.0/Calculator.runtimeconfig.json
+/Users/Mahmoud/Projects/Calculator/Calculator/bin/Debug/netcoreapp2.0/Calculator.runtimeconfig.dev.json
+/Users/Mahmoud/Projects/Calculator/Calculator/bin/Debug/netcoreapp2.0/Calculator.dll
+/Users/Mahmoud/Projects/Calculator/Calculator/bin/Debug/netcoreapp2.0/Calculator.pdb
+/Users/Mahmoud/Projects/Calculator/Calculator/obj/Debug/netcoreapp2.0/Calculator.dll
+/Users/Mahmoud/Projects/Calculator/Calculator/obj/Debug/netcoreapp2.0/Calculator.pdb
