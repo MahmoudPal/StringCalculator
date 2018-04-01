@@ -7,7 +7,7 @@ type StringCalculator() =
 
     member this.add (number : string) =
 
-        let delimiter = ','
+        let delimiter = [|','; '\n'|]
         let numberList = number.Split delimiter
         if number.Length > 0 then  
             Array.map int numberList |> Array.sum

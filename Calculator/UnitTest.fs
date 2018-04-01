@@ -23,6 +23,11 @@ type Test() =
     member this.``multiple numbers`` input output =
         Assert.AreEqual(output, calculator.add input)
 
+    [<TestCase("4\n6,10", 20)>]
+    [<TestCase("4\n6\n10", 20)>]
+    member this.``support new line as delimiter`` input output =
+        Assert.AreEqual(output, calculator.add input)
+
 
 
 
