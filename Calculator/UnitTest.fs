@@ -34,7 +34,13 @@ type Test() =
     member this.``support dynamic delimiter`` input output =
         Assert.AreEqual(output, calculator.add input)
 
+    [<TestCase("//;\n50;-40;-10", "Negatives not allowed: [-40,-10]")>]
+    [<TestCase("//;\n-50;-40;-10", "Negatives not allowed: [-50,-40,-10]")>]
+    [<TestCase("//;\n-50", "Negatives not allowed: [-50]")>]
 
+    member this.``throw expection when negative number found`` input output =
+        let result = Assert.Throws(typeof<System.Exception>, (fun () -> calculator.add input |> ignore))
+        Assert.AreEqual(result.Message, output)
 
 
 
