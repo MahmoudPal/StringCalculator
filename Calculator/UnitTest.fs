@@ -49,5 +49,9 @@ type Test() =
     member this.``ignore numbers that more than 1000`` input output =
         Assert.AreEqual(output, calculator.add input)
 
+    [<TestCase("//[%$#]\n560%$#440", 1000)>]
+    [<TestCase("//[$$$]\n560$$$1440", 560)>]
+    member this.``support one delimiter with more than one character`` input output =
+        Assert.AreEqual(output, calculator.add input)
 
 

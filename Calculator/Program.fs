@@ -6,9 +6,9 @@ open System
 type StringCalculator() =
 
 
-    member this.sum (number : string, delimiter : char[]) =
+    member this.sum (number : string, delimiter : string[]) =
         let threshold = 1000
-        let numberList = number.Split delimiter
+        let numberList = number.Split(delimiter, StringSplitOptions.RemoveEmptyEntries)
         let negative, positive = Array.map int numberList |> Array.partition (fun n -> n < 0 )
         if negative.Length > 0 then
             failwith (sprintf "Negatives not allowed: [%s]" <| String.Join(",",negative)) 
@@ -18,6 +18,11 @@ type StringCalculator() =
     member this.add (input : string) = 
         match input with
         | "" -> 0
-        | _ when input.StartsWith "//" -> this.sum(input.[4..], [|input.[2]|])
-        | _ -> this.sum(input, [|','; '\n'|])
+        | _ when input.StartsWith "//[" -> 
+                let delimiterEnd = input.IndexOf("]")-1
+                let number = input.[delimiterEnd+3..]
+                let delimiter = [|input.[3..delimiterEnd]|]
+                this.sum(number,delimiter)
+        | _ when input.StartsWith "//" -> this.sum(input.[4..], [|string (input.[2])|])
+        | _ -> this.sum(input, [|","; "\n"|])
      
