@@ -41,7 +41,13 @@ type Test() =
     member this.``throw expection when negative number found`` input output =
         let result = Assert.Throws(typeof<System.Exception>, (fun () -> calculator.add input |> ignore))
         Assert.AreEqual(result.Message, output)
-
+    
+    [<TestCase("//*\n4*1000*10001", 1004)>]
+    [<TestCase("//*\n1000*1000*1000", 3000)>]
+    [<TestCase("//;\n1001;10001;10111", 0)>]
+    [<TestCase("//;\n999;1;0", 1000)>]
+    member this.``ignore numbers that more than 1000`` input output =
+        Assert.AreEqual(output, calculator.add input)
 
 
 
