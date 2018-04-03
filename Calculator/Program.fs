@@ -19,9 +19,10 @@ type StringCalculator() =
         match input with
         | "" -> 0
         | _ when input.StartsWith "//[" -> 
-                let delimiterEnd = input.IndexOf("]")-1
-                let number = input.[delimiterEnd+3..]
-                let delimiter = [|input.[3..delimiterEnd]|]
+                let delimiterEnd = input.IndexOf("\n")
+                let number = input.[delimiterEnd+1..]
+                let delimiterPart = input.[3..delimiterEnd-1]
+                let delimiter = delimiterPart.Split([|"]["; "]"; "["|],StringSplitOptions.RemoveEmptyEntries)
                 this.sum(number,delimiter)
         | _ when input.StartsWith "//" -> this.sum(input.[4..], [|string (input.[2])|])
         | _ -> this.sum(input, [|","; "\n"|])

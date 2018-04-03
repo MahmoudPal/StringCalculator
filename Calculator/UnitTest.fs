@@ -53,5 +53,21 @@ type Test() =
     [<TestCase("//[$$$]\n560$$$1440", 560)>]
     member this.``support one delimiter with more than one character`` input output =
         Assert.AreEqual(output, calculator.add input)
+    
+    [<TestCase("//[&][*]\n560*440&100", 1100)>]
+    [<TestCase("//[$][&]\n560$1440&100", 660)>]
+    [<TestCase("//[$]\n10$20$30", 60)>]
+    member this.``support many delimiters of one character`` input output =
+        Assert.AreEqual(output, calculator.add input)
+
+    [<TestCase("//[&#][**]\n560**440&#100", 1100)>]
+    [<TestCase("//[$*$][&]\n560$*$1440&100", 660)>]
+    [<TestCase("//[&#@][*!]\n560&#@440*!100", 1100)>]
+    [<TestCase("//[^%$][&!&]\n560^%$1440&!&100", 660)>]
+    [<TestCase("//[$&]\n10$&20$&30", 60)>]
+    member this.``support many delimiters of many charaters`` input output =
+        Assert.AreEqual(output, calculator.add input)
+
+
 
 
